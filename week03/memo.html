@@ -20,14 +20,17 @@
         * {
             font-family: 'Stylish', sans-serif;
         }
+
         .wrap {
             width: 900px;
             margin: auto;
         }
+
         .comment {
             color: blue;
             font-weight: bold;
         }
+
         #post-box {
             width: 500px;
             margin: 20px auto;
@@ -39,6 +42,17 @@
     <script>
         $(document).ready(function () {
             console.log('페이지 로딩 완료')
+            $.ajax({
+                type: 'GET',
+                url: 'http://spartacodingclub.shop/post',
+                data: {},
+                success: function (response) {
+                    let articles = response['articles']
+                    for (let i = 0; i < articles.length; i++) {
+                        console.log(articles[i])
+                    }
+                }
+            })
         })
 
         function openClose() {
@@ -53,7 +67,6 @@
                 $("#post-box").show();
                 // 다시 버튼을 클릭하면, 박스 닫기를 할 수 있게 텍스트 바꿔두기
                 $("#btn-post-box").text("포스팅 박스 닫기");
-                //조금 수정해봄
 
             }
         }
