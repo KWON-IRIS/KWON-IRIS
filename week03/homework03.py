@@ -1,4 +1,5 @@
 # 지니뮤직 크롤링, 원하는 날짜로
+# 원하는 날짜를 입력 > 입력된 날의 인기차트 크롤링
 
 import requests
 from bs4 import BeautifulSoup
@@ -43,3 +44,4 @@ for list_num in num:
         artist_return = '['+artist_tag.text.strip()+']'
 
         print(num_return, title_return, artist_return)
+
